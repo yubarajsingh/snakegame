@@ -1,2 +1,2 @@
 # snakegame
-snake game made by using plain js ,learned from scrimba's fronten carrier path
+snake game made by using plain js ,learned from scrimba's fronten career path
