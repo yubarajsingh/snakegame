@@ -1,0 +1,49 @@
+body{
+    background-color: #CBFD5C;
+    font-family: 'Courier New', Courier, monospace,sans-serif;
+}
+
+.header{
+    
+    text-align: center;
+}
+button{
+    background-color: blue;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+}
+button:hover,button:focus{
+    background-color: rgb(64, 64, 168);
+}
+.grid{
+    border: 1px solid black;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cell{
+    height: 10px;
+    width: 10px;
+    background-color: rgb(170, 233, 152);
+    margin: 0;
+    
+}
+.snake{
+    height: 10px;
+    width: 10px;
+    background-color: red;
+}
+.fruit{
+    background-image: url('./mushroom.png');
+    background-position: center center;
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    
+}
