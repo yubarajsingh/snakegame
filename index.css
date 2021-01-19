@@ -94,7 +94,7 @@ button:hover,button:focus{
     width: 500px;
     height: 250px;
     background: black;
-    margin: auto;
+    margin:10rem auto;
     border-radius: 20px;
     animation-name: animatetop;
     animation-duration: 0.4s
