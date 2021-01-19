@@ -1,12 +1,19 @@
 
 let start=true
+//getting modal 
+const modal=document.querySelector('.modal')
+//score final
+const finalscore=document.getElementById('gameoverscore')
+//reset button
+const resetButton=document.querySelector(".reset")
+//start button
 const startbutton=document.getElementById('start')
 //calling grid class
 const grid=document.querySelector('.grid')
 //get scorecard 
 const scorecard=document.getElementById('score')
 //creatig snake
-let snake=[12,11,10]
+let snake=[1123,1122,1121]
 //direction
 let direction=1
 //fruit index
@@ -58,9 +65,12 @@ function moveSnake(){
     (snake[0]%width===0 && direction===-1)  ||
     (snake[0]+width >= totalCell && direction===width) || (snake[0]-width< 0 && direction===-width)
      || (cells[snake[0]+direction].classList.contains('snake')))
-        {    console.log(timer);
+        {    
             start =!start
+            modal.style.display="block"
+            finalscore.textContent="your final score is: "+score
             return clearInterval(timer)
+            
             
         }
     
@@ -137,12 +147,13 @@ function snakeDirection(event){
 
     
 }
+//function for start
 
-//initiating start button
-startbutton.addEventListener('click',function(){
+function starting(){
     if(start){
         startbutton.textContent="restart🤓"
         start=!start
+        
     }
     else{
         startbutton.textContent="start🤓"
@@ -154,7 +165,7 @@ startbutton.addEventListener('click',function(){
 
     cells[fruitindex].classList.remove('fruit')
     //creatig snake
-snake=[12,11,10]
+snake=[1123,1122,1121]
 direction=1
 //fruit index
 fruitindex=0
@@ -171,9 +182,15 @@ speed=0.9
         
        //moving snake
       timer=setInterval(moveSnake,intervalTime)
-})
+}
+//initiating start button
+startbutton.addEventListener('click',starting)
 
 //call function in the intervalTime interval
 
 document.addEventListener('keydown',snakeDirection)
 
+resetButton.addEventListener('click',function(){
+    modal.style.display="none"
+    starting()
+})
