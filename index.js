@@ -1,7 +1,13 @@
 //help button
 const help=document.getElementById("help")
+//help count for checking initial case 
+let helpcount=0
+//helpclosebtn
+const helpclosebtn=document.getElementById("helpclose")
 //play
 const play=document.getElementById("play")
+//query for help modal box
+const helpModal=document.querySelector(".help")
 //pause condition
 let pause=false
 //start resest button status
@@ -26,13 +32,14 @@ let direction=1
 let fruitindex=0
 //creating cell
 let cells=[]
-//forming grid cell using loop
+
 //timer of pause state
 let pauseTimer;
 //width of the grid
 let width=50
 //set total cell
 const totalCell=width*width;
+//for managing multiple keys
 
 //for intervalTime
 let intervalTime
@@ -40,6 +47,7 @@ let intervalTime
 let speed
 //for scoreboard
 let score=0
+//for interval
 let timer
 for(let i=0;i<totalCell;i++)
 {
@@ -120,28 +128,41 @@ play.addEventListener("click",function(){
     if(pause)
     {
         clearInterval(timer)
-    play.textContent="play now 🙃"
+    play.textContent="play now 😇"
 }
     else{
         timer=setInterval(moveSnake,intervalTime)
-        play.textContent="pause 😇"
+        play.textContent="pause ☕"
     }
 
 })
 //showing help modal
 help.addEventListener('click',function(){
+    //pausing if playing
+    clearInterval(timer)
     
   
-   
-    
+  helpModal.style.display="block" 
   
 })
-//pausing
+
+//closing help modal box
+helpclosebtn.addEventListener('click',function(){
+    helpModal.style.display="none"
+    
+      if(helpcount===0)
+      return 
+      else
+      timer=setInterval(moveSnake,intervalTime) 
+       
+    
+   
+})
 
 
 //for directing the snake
 function snakeDirection(event){
-    
+    console.log(event.keyCode)
     //up arrow
     if(event.keyCode===38){
         
@@ -176,9 +197,13 @@ function snakeDirection(event){
 
     
 }
-//function for start
+
+
+//function for start button
 
 function starting(){
+    //increasing count to know if it has started
+    helpcount++
     if(start){
         startbutton.textContent="restart🤓"
         
@@ -201,6 +226,10 @@ fruitindex=0
 //interval time
 intervalTime=300  
 speed=0.9
+
+
+
+
 //making snake
   snake.forEach(index=>
     {   

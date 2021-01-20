@@ -10,6 +10,7 @@ body{
 .header{
     
     text-align: center;
+    padding: 10px;
 }
 button{
     background-color: blue;
@@ -127,3 +128,25 @@ button:hover,button:focus{
       display: none;
       margin: 5px 0;
   }
+
+  .help{
+      display: none;
+  }
+  .help .container{
+      height: 280px;
+  }
+  h4 {
+      margin: 10px;
+  }
+  .left{
+      transform: rotate(180deg);
+    
+  }
+
+  .up{
+      transform: rotate(-90deg);
+  }
+  .down{
+    transform: rotate(90deg);
+    margin-right: 3px;
+}
