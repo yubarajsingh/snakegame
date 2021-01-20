@@ -1,4 +1,10 @@
-
+//help button
+const help=document.getElementById("help")
+//play
+const play=document.getElementById("play")
+//pause condition
+let pause=false
+//start resest button status
 let start=true
 //getting modal 
 const modal=document.querySelector('.modal')
@@ -21,16 +27,17 @@ let fruitindex=0
 //creating cell
 let cells=[]
 //forming grid cell using loop
-
+//timer of pause state
+let pauseTimer;
 //width of the grid
 let width=50
 //set total cell
 const totalCell=width*width;
 
 //for intervalTime
-let intervalTime=300
+let intervalTime
 //speed
-let speed=0.5
+let speed
 //for scoreboard
 let score=0
 let timer
@@ -108,14 +115,36 @@ function moveSnake(){
 
 }
 
+play.addEventListener("click",function(){
+    pause=!pause
+    if(pause)
+    {
+        clearInterval(timer)
+    play.textContent="play now 🙃"
+}
+    else{
+        timer=setInterval(moveSnake,intervalTime)
+        play.textContent="pause 😇"
+    }
+
+})
+//showing help modal
+help.addEventListener('click',function(){
+    
+  
+   
+    
+  
+})
+//pausing
 
 
-
+//for directing the snake
 function snakeDirection(event){
     
     //up arrow
     if(event.keyCode===38){
-       
+        
       if (direction=== width)
         return
        direction=-width;  
@@ -152,7 +181,7 @@ function snakeDirection(event){
 function starting(){
     if(start){
         startbutton.textContent="restart🤓"
-        start=!start
+        
         
     }
     else{
@@ -179,9 +208,11 @@ speed=0.9
        )
         generateFruit()
 
-        
+    //clear interval if there is any        
+    clearInterval(timer)
        //moving snake
       timer=setInterval(moveSnake,intervalTime)
+      play.style.display="block"
 }
 //initiating start button
 startbutton.addEventListener('click',starting)

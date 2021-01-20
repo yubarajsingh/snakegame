@@ -122,3 +122,8 @@ button:hover,button:focus{
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
   }
+
+  #play{
+      display: none;
+      margin: 5px 0;
+  }
